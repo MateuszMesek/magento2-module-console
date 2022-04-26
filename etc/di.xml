@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="MateuszMesek\Console\Command\ContextInterface" type="MateuszMesek\Console\Command\Context"/>
+    <type name="Symfony\Component\Console\Command\Command">
+        <plugin name="MateuszMesek_Console-SetContext" type="MateuszMesek\Console\Plugin\SetContext\OnCommand"/>
+        <plugin name="MateuszMesek_Console-WrapInput" type="MateuszMesek\Console\Plugin\WrapInput\OnCommand"/>
+    </type>
+    <type name="MateuszMesek\Console\Plugin\SetContext\OnCommand">
+        <arguments>
+            <argument name="context" xsi:type="object">MateuszMesek\Console\Command\ContextInterface\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="MateuszMesek\Console\ValueParser\Pool">
+        <arguments>
+            <argument name="parsers" xsi:type="array">
+                <item name="MateuszMesek\Console\Input\InputRangeInterface" xsi:type="string">MateuszMesek\Console\ValueParser\RangeValueParser</item>
+                <item name="MateuszMesek\Console\Input\InputJsonInterface" xsi:type="string">MateuszMesek\Console\ValueParser\JsonValueParser</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
