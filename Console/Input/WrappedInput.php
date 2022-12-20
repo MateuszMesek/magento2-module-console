@@ -1,23 +1,19 @@
 <?php declare(strict_types=1);
 
-namespace MateuszMesek\Console\Input;
+namespace MateuszMesek\Console\Console\Input;
 
-use MateuszMesek\Console\ValueParser\Pool as ValueParserPool;
+use MateuszMesek\Console\Console\ValueParser\Pool as ValueParserPool;
 use Symfony\Component\Console\Input\InputDefinition;
 use Symfony\Component\Console\Input\InputInterface;
 
 class WrappedInput implements InputInterface
 {
-    private InputInterface $input;
-    private ValueParserPool $valueParserPool;
 
     public function __construct(
-        InputInterface $input,
-        ValueParserPool $valueParserPool
+        private readonly InputInterface  $input,
+        private readonly ValueParserPool $valueParserPool
     )
     {
-        $this->input = $input;
-        $this->valueParserPool = $valueParserPool;
     }
 
     public function getFirstArgument()

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace MateuszMesek\Console\ValueParser;
+namespace MateuszMesek\Console\Console\ValueParser;
 
 interface ValueParserInterface
 {

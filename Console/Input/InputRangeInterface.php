@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace MateuszMesek\Console\Input;
+namespace MateuszMesek\Console\Console\Input;
 
 interface InputRangeInterface
 {

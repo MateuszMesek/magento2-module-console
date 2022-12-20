@@ -1,18 +1,15 @@
 <?php declare(strict_types=1);
 
-namespace MateuszMesek\Console\ValueParser;
+namespace MateuszMesek\Console\Console\ValueParser;
 
 use Magento\Framework\Serialize\Serializer\Json;
 
 class JsonValueParser implements ValueParserInterface
 {
-    private Json $json;
-
     public function __construct(
-        Json $json
+        private readonly Json $json
     )
     {
-        $this->json = $json;
     }
 
     public function parse($input)

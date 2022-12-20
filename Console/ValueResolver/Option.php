@@ -1,24 +1,19 @@
 <?php declare(strict_types=1);
 
-namespace MateuszMesek\Console\ValueResolver;
+namespace MateuszMesek\Console\Console\ValueResolver;
 
-use MateuszMesek\Console\Command\ContextInterface;
+use MateuszMesek\Console\Console\ContextInterface;
 
 class Option implements ValueResolverInterface
 {
-    private ContextInterface $context;
-    private string $name;
-
     public function __construct(
-        ContextInterface $context,
-        string $name
+        private readonly ContextInterface $context,
+        private readonly string           $name
     )
     {
-        $this->context = $context;
-        $this->name = $name;
     }
 
-    public function get()
+    public function get(): mixed
     {
         $input = $this->context->getInput();
 

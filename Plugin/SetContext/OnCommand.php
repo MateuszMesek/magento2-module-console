@@ -2,25 +2,22 @@
 
 namespace MateuszMesek\Console\Plugin\SetContext;
 
-use MateuszMesek\Console\Command\ContextInterface;
+use MateuszMesek\Console\Console\ContextInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class OnCommand
 {
-    private ContextInterface $context;
-
     public function __construct(
-        ContextInterface $context
+        private readonly ContextInterface $context
     )
     {
-        $this->context = $context;
     }
 
     public function beforeRun(
-        Command $command,
-        InputInterface $input,
+        Command         $command,
+        InputInterface  $input,
         OutputInterface $output
     ): void
     {

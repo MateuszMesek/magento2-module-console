@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace MateuszMesek\Console\ValueParser;
+namespace MateuszMesek\Console\Console\ValueParser;
 
 class RangeValueParser implements ValueParserInterface
 {
@@ -16,11 +16,11 @@ class RangeValueParser implements ValueParserInterface
             $item = (string)$item;
 
             switch (true) {
-                case strpos($item, ',') !== false:
+                case str_contains($item, ','):
                     $explodedItems = explode(',', $item);
 
                     foreach (array_reverse($explodedItems) as $explodedItem) {
-                        array_unshift($input, $explodedItem);
+                        array_unshift($input, (int)$explodedItem);
                     }
 
                     unset($explodedItems);
@@ -37,7 +37,7 @@ class RangeValueParser implements ValueParserInterface
                     break;
 
                 default:
-                    $output[] = $item;
+                    $output[] = (int)$item;
             }
         }
 

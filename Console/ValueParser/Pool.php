@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace MateuszMesek\Console\ValueParser;
+namespace MateuszMesek\Console\Console\ValueParser;
 
 use Magento\Framework\ObjectManager\TMap;
 use Magento\Framework\ObjectManager\TMapFactory;
@@ -12,7 +12,7 @@ class Pool
 
     public function __construct(
         TMapFactory $TMapFactory,
-        array $parsers = []
+        array       $parsers = []
     )
     {
         $this->parsers = $TMapFactory->createSharedObjectsMap([
