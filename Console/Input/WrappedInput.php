@@ -16,17 +16,17 @@ class WrappedInput implements InputInterface
     {
     }
 
-    public function getFirstArgument()
+    public function getFirstArgument(): ?string
     {
         return $this->input->getFirstArgument();
     }
 
-    public function hasParameterOption($values, $onlyParams = false)
+    public function hasParameterOption(string|array $values, bool $onlyParams = false): bool
     {
         return $this->input->hasParameterOption($values, $onlyParams);
     }
 
-    public function getParameterOption($values, $default = false, $onlyParams = false)
+    public function getParameterOption(string|array $values, string|bool|int|float|array|null $default = false, bool $onlyParams = false)
     {
         return $this->input->getParameterOption($values, $default, $onlyParams);
     }
@@ -89,52 +89,52 @@ class WrappedInput implements InputInterface
         $this->input->validate();
     }
 
-    public function getArguments()
+    public function getArguments(): array
     {
         return $this->input->getArguments();
     }
 
-    public function getArgument($name)
+    public function getArgument(string $name)
     {
         return $this->input->getArgument($name);
     }
 
-    public function setArgument($name, $value)
+    public function setArgument(string $name, mixed $value)
     {
         $this->input->setArgument($name, $value);
     }
 
-    public function hasArgument($name)
+    public function hasArgument(string $name): bool
     {
         return $this->input->hasArgument($name);
     }
 
-    public function getOptions()
+    public function getOptions(): array
     {
         return $this->input->getOptions();
     }
 
-    public function getOption($name)
+    public function getOption(string $name)
     {
         return $this->input->getOption($name);
     }
 
-    public function setOption($name, $value)
+    public function setOption(string $name, mixed $value)
     {
         $this->input->setOption($name, $value);
     }
 
-    public function hasOption($name)
+    public function hasOption(string $name): bool
     {
         return $this->input->hasArgument($name);
     }
 
-    public function isInteractive()
+    public function isInteractive(): bool
     {
         return $this->input->isInteractive();
     }
 
-    public function setInteractive($interactive)
+    public function setInteractive(bool $interactive)
     {
         $this->input->setInteractive($interactive);
     }
